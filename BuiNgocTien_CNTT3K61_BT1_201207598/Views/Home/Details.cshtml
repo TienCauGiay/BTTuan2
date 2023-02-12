@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+@model BuiNgocTien_CNTT3K61_BT1_201207598.Models.tDanhMucSP
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <img src="~/Assets/Images/@Model.Anh" alt="product image">
+        </div>
+        <div class="col-sm-6">
+            <h5>@Model.TenSP</h5>
+            <p>@Model.GioiThieuSP</p>
+            <p>Giá bán: $@Model.Gia</p>
+            <a href="@Url.Action("Delete", "Home", new { id = Model.MaSP})" onclick="return confirm('Are you sure you want to delete this product?');">
+                <button class="btn btn-danger">Delete Product</button>
+            </a>
+            <button class="btn btn-primary">Add To Card</button>
+        </div>
+    </div>
+    <a href="@Url.Action("Index", "Home")" class="btn btn-secondary">List Product</a>
+</div>
+

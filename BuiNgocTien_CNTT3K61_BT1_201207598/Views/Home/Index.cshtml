@@ -1,0 +1,38 @@
+﻿@model BuiNgocTien_CNTT3K61_BT1_201207598.Models.ProductAndNation
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-md-10" id="content">
+    <div class="container my-5">
+        <div class="row">
+            @foreach (var obj in Model.listProduct)
+            {
+
+                <div class="col-md-3">
+                    <a href="@Url.Action("Details", "Home", new { id = obj.MaSP.Trim()})" class="sanpham">
+                        <div class="card">
+                            <img src="~/Assets/Images/@obj.Anh"
+                                 class="card-img-top" alt="Image @obj.Anh">
+                            <div class="card-body">
+                                <h5 class="card-title">@obj.TenSP</h5>
+                                <p class="card-text">$@obj.Gia</p>
+                                <button class="btn btn-primary">Add to Cart</button>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            }
+            </div>
+    </div>
+</div>
+<div class="col-md-2" id="menu">
+    <ul class="cacnuoc">
+        @foreach (var p in Model.listNation)
+        {
+            <li><a href="@Url.Action("ShowProductByCountry", "Home", new { id = p.MaNuoc.Trim()})">@p.TenNuoc</a></li>
+        }
+    </ul>
+</div>
